@@ -114,7 +114,7 @@ module.exports = function(passport) {
                                  create an account to set a password"});
       }
       // if the user is found but the password is wrong
-      if (!user.validPassword(password)) {
+      if (!user.checkPassword(password)) {
         return done(null, false, {message: 'Wrong Password'});
       }
 

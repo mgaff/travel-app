@@ -129,5 +129,4 @@ angular.module('travel.results', [])
   $scope.getVenueInformation($window.sessionStorage.getItem('knowhere'));
 
 
-
 });

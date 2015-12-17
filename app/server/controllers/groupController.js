@@ -3,6 +3,7 @@ var User   = require('../models/user');
 var Venue  = require('../models/venue');
 var Group  = require('../models/group');
 var Rating = require('../models/rating');
+var mongoose = require('mongoose');
 
 var util = require(path.join(__dirname, '../util'));
 
