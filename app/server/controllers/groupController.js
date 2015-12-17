@@ -10,11 +10,15 @@ var venue  = venues.Results;
 module.exports = {
   
   createGroup: function(req, res, next){
+
+    //console.log(req.body);
+
     var title  = req.body.title;
     var dest   = req.body.dest;
-    var userId = req.body.userId;
+    var userId = req.body.userInfo;
 
-    User.findById(userId, function (err, user) {
+    User.findById(userId._id, function (err, user) {
+      console.log(user);
       if (err){
         console.log(err);
         return res.status(500).send();
@@ -36,8 +40,8 @@ module.exports = {
 
       user.groupId.push(newGroup);
       user.save();
+      res.status(200).send(newGroup);
     });
-
   },
 
   getGroupByTitle: function(req, res, next){ //account for two groups with same name but with different hosts

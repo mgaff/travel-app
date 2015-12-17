@@ -18,6 +18,7 @@ module.exports = {
   },
 
   getGroups: function (req, res, next){
+    console.log("in get groups ", req.params);
     var userId = req.params.userId;
 
     User.findById(userId, function (err, user){

@@ -11,20 +11,21 @@ angular.module('travel.landing', [])
 
     Groups.createGroup({
       groupName: $scope.data.group,
-      userInfo: $rootScope.currentUser,
+      userId: $rootScope.currentUser._id,
       destination: $window.sessionStorage.getItem('knowhere')
     });
 
-    // FIXME We need to give createGroup some time before getGroups will work...promisify this
-    // TODO We should not be searching through groups on client side
-    Groups.getGroups($rootScope.currentUser)
-        .then(function(groupsInfo){
-          groupsInfo.some(function(group){
-            if (group.title === $scope.data.group) {
-              $rootScope.currentGroup = group;
-            }
-          });
-        });
+    // // FIXME We need to give createGroup some time before getGroups will work...promisify this
+    // // TODO We should not be searching through groups on client side
+    // Groups.getGroups($rootScope.currentUser)
+    //     .then(function(groupsInfo){
+    //       console.log("groupsInfo is ", groupsInfo);
+    //       // groupsInfo.some(function(group){
+    //       //   if (group.title === $scope.data.group) {
+    //       //     $rootScope.currentGroup = group;
+    //       //   }
+    //       // });
+    //     });
 
     $state.go('results');
   };
