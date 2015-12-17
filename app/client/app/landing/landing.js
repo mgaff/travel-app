@@ -13,6 +13,9 @@ angular.module('travel.landing', [])
       groupName: $scope.data.group,
       userId: $rootScope.currentUser._id,
       destination: $window.sessionStorage.getItem('knowhere')
+    }).then(function(resp){
+      console.log(resp);
+      $state.go('results');
     });
 
     // // FIXME We need to give createGroup some time before getGroups will work...promisify this
@@ -27,6 +30,6 @@ angular.module('travel.landing', [])
     //       // });
     //     });
 
-    $state.go('results');
+    
   };
 });

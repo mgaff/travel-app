@@ -104,9 +104,9 @@ angular.module('travel.results', [])
   ////////////////// INIT STATE //////////////////////
 
 
-  $scope.getGroups();
-  $scope.getCity();
-  $scope.getVenueInformation();
+  // $scope.getGroups();
+  // $scope.getCity();
+  // $scope.getVenueInformation();
 
 
 });

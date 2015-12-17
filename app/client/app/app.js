@@ -20,7 +20,7 @@ angular.module('travel', [
       url: '/results',
       templateUrl: 'app/results/results.html',
       controller: 'ResultsController',
-      authenticate: true
+      ///authenticate: true
     })
     .state('favorites', {
       url: '/favorites',
