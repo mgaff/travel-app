@@ -17,7 +17,7 @@ module.exports = {
     var dest   = req.body.destination;
     var userId = req.body.userId;
 
-    User.findById(userId._id, function (err, user) {
+    User.findById(userId, function (err, user) {
       console.log(user);
       if (err){
         console.log(err);
