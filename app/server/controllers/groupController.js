@@ -13,9 +13,9 @@ module.exports = {
 
     //console.log(req.body);
 
-    var title  = req.body.title;
-    var dest   = req.body.dest;
-    var userId = req.body.userInfo;
+    var title  = req.body.groupName;
+    var dest   = req.body.destination;
+    var userId = req.body.userId;
 
     User.findById(userId._id, function (err, user) {
       console.log(user);
@@ -113,8 +113,8 @@ module.exports = {
   },
 
   removeMember: function(req, res, next){
-    var userId = req.params.userId;
-    var groupId = req.params.groupId;
+    var userId = req.query.userId;
+    var groupId = req.query.groupId;
 
     Group.update({_id: groupId}, {$pull : {members: userId}}, function(err, group){
       if (err){
@@ -126,7 +126,7 @@ module.exports = {
   },
 
   getMembers: function(req, res, next){
-    var groupId = req.params.groupId;
+    var groupId = req.query.groupId;
 
     Group.findById(groupId, function(err, group){
       if (err){
@@ -152,9 +152,26 @@ module.exports = {
     });
   },
 
+  getGroups: function (req, res, next){
+    console.log("in get groups ", req.query);
+    var userId = req.query.userId;
+
+    User.findById(userId, function (err, user){
+      if (err){
+        console.log(err);
+        res.status(500).send();
+      }
+
+      if (user){
+        res.status(200).send(user.groupId);
+      } else {
+        res.status(200).send();
+      }
+    });
+  },
 
   getInfo: function(title){
-    var groupId = req.params.groupId;
+    var groupId = req.query.groupId;
 
     Group.findById(groupId)
     .populate('favorites')

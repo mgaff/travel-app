@@ -6,6 +6,8 @@ var cookieParser = require('cookie-parser');
 var passport     = require('passport');
 var flash        = require('connect-flash');
 var session      = require('express-session');
+var MongoStore   = require('connect-mongo')(session);
+var mongoose     = require('mongoose'); 
 var morgan       = require('morgan');
 var cors         = require('cors');
 
@@ -34,7 +36,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // needed for auth
 app.use(cookieParser());
 // required for passport
-app.use(session({secret: 'tripAppIsAmazing', cookie: { maxAge: 3600000}}));
+app.use(session({
+  secret: 'tripAppIsAmazing', 
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  cookie: { maxAge: 3600000}}));
 
 require('./config/passport')(passport);
 app.use(passport.initialize());
