@@ -100,7 +100,6 @@ app.get('/auth/google', passport.authenticate('google', { scope: [  'https://www
 app.get('/auth/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   function(req, res) {
-    console.log("shit worked");
     // Successful authentication, redirect home.
     res.redirect('/');
   });
