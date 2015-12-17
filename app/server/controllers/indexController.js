@@ -17,30 +17,12 @@ module.exports = {
    }
   },
 
-  getGroups: function (req, res, next){
-    console.log("in get groups ", req.params);
-    var userId = req.params.userId;
-
-    User.findById(userId, function (err, user){
-      if (err){
-        console.log(err);
-        res.status(500).send();
-      }
-
-      if (user){
-        res.status(200).send(user.groupId);
-      } else {
-        res.status(200).send();
-      }
-    });
-  },
-
   getFavs: function (req, res, next){
 
   },
 
   getInfo: function (req, res, next){
-    var userId = req.params.userId;
+    var userId = req.query.userId;
 
     User.findById(userId, function (err, user){
       if (err){

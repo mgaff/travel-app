@@ -35,7 +35,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // needed for auth
 app.use(cookieParser());
 // required for passport
-app.use(session({secret: 'tripAppIsAmazing', store: new MongoStore({ mongooseConnection: mongoose.connection }), cookie: { maxAge: 3600000}}));
+app.use(session({
+  secret: 'tripAppIsAmazing', 
+  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  cookie: { maxAge: 3600000}}));
 
 require('./config/passport')(passport);
 app.use(passport.initialize());

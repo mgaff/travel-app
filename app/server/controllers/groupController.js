@@ -144,9 +144,26 @@ module.exports = {
     });
   },
 
-  getInfo: function(req, res, next){
-    var groupId = req.body.groupId;
+  getGroups: function (req, res, next){
+    console.log("in get groups ", req.query);
+    var userId = req.query.userId;
 
+    User.findById(userId, function (err, user){
+      if (err){
+        console.log(err);
+        res.status(500).send();
+      }
+
+      if (user){
+        res.status(200).send(user.groupId);
+      } else {
+        res.status(200).send();
+      }
+    });
+  },
+
+  getInfo: function(title){
+    var groupId = req.query.groupId;
     Group.findById(groupId)
         .populate('favorites')
         .populate('members')
