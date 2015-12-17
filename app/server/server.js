@@ -6,6 +6,11 @@ var cookieParser = require('cookie-parser');
 var passport     = require('passport');
 var flash        = require('connect-flash');
 var session      = require('express-session');
+<<<<<<< e3342d098a786c2fa2a5ab470005398b96af04b3
+=======
+//var MongoStore   = require('connect-mongo')(session);
+var mongoose     = require('mongoose'); 
+>>>>>>> (fix) help fix bug
 var morgan       = require('morgan');
 var cors         = require('cors');
 var MongoStore   = require('connect-mongo/es5')(session);
@@ -37,7 +42,7 @@ app.use(cookieParser());
 // required for passport
 app.use(session({
   secret: 'tripAppIsAmazing', 
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
+  //store: new MongoStore({ mongooseConnection: mongoose.connection }),
   cookie: { maxAge: 3600000}}));
 
 require('./config/passport')(passport);
