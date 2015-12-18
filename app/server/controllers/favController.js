@@ -99,7 +99,9 @@ module.exports = {
   getGroupFavs: function (req, res, next){
     var groupId = req.query.groupId;
 
-    Group.findById(groupId, function(err, group){
+    Group.findById(groupId)
+    .populate('members favorites')
+    .exec(function (err, group){
       if (err){
         console.log(err);
         return res.status(500).send();
@@ -110,6 +112,7 @@ module.exports = {
   },
 
   getUserFavs: function (req, res, next){
+<<<<<<< 844586c6da965fdd4cd82afc605c33d7a88697b6
     console.log(req.query);
     var userId = req.query.userId;
 
@@ -117,6 +120,13 @@ module.exports = {
     .populate('favorites.venue')
     .exec(function (err, user){
       console.log(user);
+=======
+    var userId = req.query.userId;
+
+    User.findById(userId)
+    .populate('favorites')
+    .exec(function (err, user){
+>>>>>>> (feat) use tripexpert api now
       if (err){
         console.log(err);
         return res.status(500).send();

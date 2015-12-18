@@ -125,7 +125,9 @@ module.exports = {
   getMembers: function(req, res, next){
     var groupId = req.body.groupId;
 
-    Group.findById(groupId, function(err, group){
+    Group.findById(groupId)
+    .populate('members')
+    .exec(function (err, group){
       if (!group) return util.send400(res, err);
       if (err) return util.send500(res, err);
 
@@ -139,10 +141,9 @@ module.exports = {
     Group.findById(groupId, function(err, group){
       if (!group) return util.send400(res, err);
       if (err) return util.send500(res, err);
-
       // TODO populate and add ratings.
       return res.status(200).send(group.favorites);
-    });
+    };
   },
 
   getGroups: function (req, res, next){

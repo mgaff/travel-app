@@ -1,6 +1,7 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var bcrypt = require('bcrypt-nodejs');
+var mongoose     = require('mongoose');
+var findOrCreate = require('mongoose-findorcreate')
+var Schema       = mongoose.Schema;
+var bcrypt       = require('bcrypt-nodejs');
 
 // sets db location to Heroku Mongolab uri or local host
 var dbUri;
@@ -138,6 +139,15 @@ var ratingSchema = new Schema ({
 });
 
 db.ratingSchema = ratingSchema;
+
+var destSchema = new Schema ({
+  perm: String,
+  destId: Number
+})
+
+destSchema.plugin(findOrCreate);
+
+db.destSchema = destSchema;
 
 
 module.exports = db;
