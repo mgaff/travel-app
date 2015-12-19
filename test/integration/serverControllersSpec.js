@@ -251,7 +251,7 @@ describe('server controllers', function () {
           .send({ groupId: group._id })
           .end(function (err, res) {
             group = res.body;
-            console.log('@@@@@@@', group);
+            console.log('@@@@@@', group);
             done();
           });
       });

@@ -163,7 +163,7 @@ module.exports = {
     });
   },
 
-  getInfo: function(title){
+  getInfo: function(req, res, next){
     var groupId = req.body.groupId;
     Group.findById(groupId)
         .populate('favorites')
