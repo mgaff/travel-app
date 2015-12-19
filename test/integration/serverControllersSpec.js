@@ -271,6 +271,8 @@ describe('server controllers', function () {
       });
 
       it('populates members', function () {
+        console.log("@@@@@@@@@@@@@@@@@@");
+        console.log(group)
         expect(group.members[0].constructor).to.equal(Object);
       });
     });

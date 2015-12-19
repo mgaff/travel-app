@@ -147,7 +147,7 @@ module.exports = {
 
   getGroups: function (req, res, next){
     console.log("in get groups ", req.query);
-    var userId = req.query.userId;
+    var userId = req.body.userId;
 
     User.findById(userId, function (err, user){
       if (err){
@@ -164,7 +164,7 @@ module.exports = {
   },
 
   getInfo: function(title){
-    var groupId = req.query.groupId;
+    var groupId = req.body.groupId;
     Group.findById(groupId)
         .populate('favorites')
         .populate('members')
