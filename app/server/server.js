@@ -10,21 +10,7 @@ var MongoStore   = require('connect-mongo/es5')(session);
 var mongoose     = require('mongoose'); 
 var morgan       = require('morgan');
 var cors         = require('cors');
-<<<<<<< 576f4a4c6e0a67d85f74d4db7253cc7c443705d0
-<<<<<<< 857d2558ab9150c299bc21862c76fc3bd4240642
 
-=======
-<<<<<<< 4d9e392f19819ac1e37fc962770ea2a9fd388350
-=======
->>>>>>> (feat) switched over from mock data to trip expert
-var MongoStore   = require('connect-mongo/es5')(session);
-var mongoose     = require('mongoose');
-
-<<<<<<< 576f4a4c6e0a67d85f74d4db7253cc7c443705d0
->>>>>>> (fix) committing minor changes before rebase
->>>>>>> (fix) committing minor changes before rebase
-=======
->>>>>>> (feat) switched over from mock data to trip expert
 
 // Server routers:
 var index  = require(path.join(__dirname, 'routes/index'));

@@ -117,6 +117,7 @@ var venueSchema = new Schema ({
   index_photo: String,
   photos: Array,
   amenities: Array,
+  description: String,
   userRating: {type: Number, default: 5}
 });
 

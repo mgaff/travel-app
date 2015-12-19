@@ -22,9 +22,6 @@ function getUserFavInfo(userId) {
   .exec(function (err, user){
     if (!user) return;
     if (err) return;
-    //console.log(user);
-    //console.log(user.groupId[0].favorites);
-    //console.log(user.groupId[0].members);
     (function(){ // the following is done for synchronous purposes
       var index = 0;
       var list = [];
@@ -85,10 +82,6 @@ function getUserFavInfo(userId) {
           }
         },
         function (err, results){
-          //callback invoked from asynch
-          // if (err) console.log(err)
-          console.log("@@@@@@@@@@@@");
-          console.log(index) 
           var venue = results.getVenue;
           var info  = results.getInfo;
 
@@ -102,6 +95,7 @@ function getUserFavInfo(userId) {
           venue.index_photo = info.index_photo;
           venue.photos = info.photos;
           venue.amenities = info.amenities;
+          venue.description = info.description;
 
           venue.save();
 
