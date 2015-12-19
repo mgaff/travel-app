@@ -1,5 +1,5 @@
 var mongoose     = require('mongoose');
-var findOrCreate = require('mongoose-findorcreate')
+var findOrCreate = require('mongoose-findorcreate');
 var Schema       = mongoose.Schema;
 var bcrypt       = require('bcrypt-nodejs');
 
@@ -117,7 +117,6 @@ var venueSchema = new Schema ({
   index_photo: String,
   photos: Array,
   amenities: Array,
-  description: String,
   userRating: {type: Number, default: 5}
 });
 
@@ -147,7 +146,7 @@ db.ratingSchema = ratingSchema;
 var destSchema = new Schema ({
   perm: String,
   destId: Number
-})
+});
 
 destSchema.plugin(findOrCreate);
 

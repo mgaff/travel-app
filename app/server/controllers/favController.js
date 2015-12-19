@@ -35,7 +35,6 @@ module.exports = {
             tripexpert_score: venueInfo.tripexpert_score,
             rank_in_destination: venueInfo.rank_in_destination,
             score: venueInfo.score,
-            description: venueInfo.description,
             index_photo: venueInfo.index_photo,
             address: venueInfo.address,
             telephone: venueInfo.telephone,

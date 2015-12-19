@@ -29,10 +29,10 @@ function getUserFavInfo(userId) {
 
       function joinFavs(){ //combine user favorites and group into single array 
         for (var i = 0; i < user.favorites.length; i++) {
-          //if (!user.favorites[i].venue.name){ 
+          if (!user.favorites[i].venue.name){ 
             list.push(user.favorites[i].venue.lookUpId);
             noCopies[user.favorites[i].venue.lookUpId] = true;
-          //}
+          }
         }
 
         for (var x = 0; x < user.groupId.length; x++){
@@ -47,7 +47,7 @@ function getUserFavInfo(userId) {
         if (list.length) {
           loadVenues();
         }
-      };
+      }
 
       joinFavs();
 
@@ -71,7 +71,7 @@ function getUserFavInfo(userId) {
           },
 
           getVenue: function(callback){
-            var venueId = list[index]
+            var venueId = list[index];
             Venue.findOne({lookUpId: venueId} , function (err, venue){
               if (!venue) return;
               if (err) return;
@@ -95,12 +95,11 @@ function getUserFavInfo(userId) {
           venue.index_photo = info.index_photo;
           venue.photos = info.photos;
           venue.amenities = info.amenities;
-          venue.description = info.description;
 
           venue.save();
 
           if (index < list.length){
-            index++
+            index++;
             loadVenues();
           }
         });
@@ -108,11 +107,11 @@ function getUserFavInfo(userId) {
       //loadVenues();
     })();
   });
-};
+}
 
 function cleanUp() {
   //TODO make sure references are being deleted
-};
+}
 
 eventEmitter.addListener('getFavInfo', getUserFavInfo);
 

@@ -74,7 +74,7 @@ module.exports = function(passport) {
           // save the user
           newUser.save(function(err, user) {
             if (err) {
-              throw err
+              throw err;
             }
             return cb(null, newUser);
           });
@@ -111,8 +111,8 @@ module.exports = function(passport) {
 
       // check to see if they used oauth previously and no password was set
       if (user.password === undefined){ 
-        return done(null, false, {message: "Looks like that email previously signed in using a 3rd party - \
-                                 create an account to set a password"});
+        return done(null, false, {message: "Looks like that email previously signed in using a 3rd party - " +
+                                 "create an account to set a password"});
       }
       // if the user is found but the password is wrong
       if (!user.checkPassword(password)) {
