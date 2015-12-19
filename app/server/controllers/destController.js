@@ -22,25 +22,40 @@ function loadDests(){
        });
 };
 
-loadDests();
+// loadDests();
 
-// function loadVenue(){
-//   request.get('http://api.tripexpert.com/v1/venues?')
-//          .query({
-//           destination_id: 20,
-//           api_key: '5d8756782b4f32d2004e811695ced8b6'
-//         })
-//          .end(function (err, res) {
-//             if (err){
-//               console.log(err);
-//               return;
-//             }
-//             var text = JSON.parse(res.text);
-//             console.log(text.response.venues);
-//          });
-// };
+function loadVenue(){
+  request.get('http://api.tripexpert.com/v1/venues?')
+         .query({
+          destination_id: 20,
+          api_key: '5d8756782b4f32d2004e811695ced8b6'
+        })
+         .end(function (err, res) {
+            if (err){
+              console.log(err);
+              return;
+            }
+            var text = JSON.parse(res.text);
+            console.log(text.response.venues);
+         });
+};
 
-// loadVenue();
+function loadSingleVenue(){
+  request.get('http://api.tripexpert.com/v1/venues/16400?')
+         .query({
+          api_key: '5d8756782b4f32d2004e811695ced8b6'
+        })
+         .end(function (err, res) {
+            if (err){
+              //console.log(err);
+              return;
+            }
+            var text = JSON.parse(res.text);
+            //console.log(text.response.venue[0]);
+         });
+};
+loadSingleVenue();
+//loadVenue();
 
 var venues = require("../../../mock-data/venues.json");
 var dests = require("../../../mock-data/destinations.json");

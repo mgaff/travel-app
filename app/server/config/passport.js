@@ -2,6 +2,7 @@ var LocalStrategy   = require('passport-local').Strategy;
 var GoogleStrategy = require('passport-google-oauth2').Strategy;
 var FacebookStrategy = require('passport-facebook').Strategy;
 var User = require('../models/user');
+var eventEmitter = require('./eventEmitter');
 
 var PROTOCOL_DOMAIN = ( process.env.NODE_ENV === 'production' ?
                         'https://knowhere.herokuapp.com' :
@@ -119,7 +120,11 @@ module.exports = function(passport) {
       }
 
       // all is well, return successful user
-      return done(null, user);
+      done(null, user);
+
+      //emit event to begin loading user favorites
+      eventEmitter.emit('getFavInfo', user._id);
+
     });
   }
 ));

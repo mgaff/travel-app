@@ -32,7 +32,6 @@ module.exports = {
       newGroup.save(function (err, group){
         if (!group) return util.send400(res, err);
         if (err) return util.send500(res, err);
-
         user.groupId.push(newGroup);
         user.save();
         res.status(200).send(newGroup);

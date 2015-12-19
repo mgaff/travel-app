@@ -107,6 +107,7 @@ db.groupSchema = groupSchema;
 
 var venueSchema = new Schema ({
   lookUpId: Number,
+<<<<<<< 4d9e392f19819ac1e37fc962770ea2a9fd388350
   name: String,
   venue_type_id: Number,
   tripexpert_score: Number,
@@ -115,6 +116,8 @@ var venueSchema = new Schema ({
   description: String,
   photo: String,
   userRating: {type: Number, default: 5}
+=======
+>>>>>>> (fix) committing minor changes before rebase
 });
 
 
