@@ -107,17 +107,17 @@ db.groupSchema = groupSchema;
 
 var venueSchema = new Schema ({
   lookUpId: Number,
-<<<<<<< 4d9e392f19819ac1e37fc962770ea2a9fd388350
-  name: String,
   venue_type_id: Number,
+  name: String,
   tripexpert_score: Number,
-  rank: Number,
-  score: Number,
-  description: String,
-  photo: String,
+  rank_in_destination: Number,
+  address: String,
+  telephone: String,
+  website: String,
+  index_photo: String,
+  photos: Array,
+  amenities: Array,
   userRating: {type: Number, default: 5}
-=======
->>>>>>> (fix) committing minor changes before rebase
 });
 
 

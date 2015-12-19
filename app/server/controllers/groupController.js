@@ -142,7 +142,7 @@ module.exports = {
       if (err) return util.send500(res, err);
       // TODO populate and add ratings.
       return res.status(200).send(group.favorites);
-    };
+    });
   },
 
   getGroups: function (req, res, next){

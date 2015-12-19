@@ -1,6 +1,10 @@
 var request = require('superagent');
 var Dest    = require('../models/destination');
 
+var Venue = require('../models/venue');
+var User = require('../models/user');
+var Group = require('../models/group');
+
 function loadDests(){
 
  http://api.tripexpert.com/v1/destinations?api_key=5d8756782b4f32d2004e811695ced8b6
@@ -54,8 +58,41 @@ function loadSingleVenue(){
             //console.log(text.response.venue[0]);
          });
 };
-loadSingleVenue();
+//loadSingleVenue();
 //loadVenue();
+
+// function addFavorite(){
+//   User.findOne({username: 'mgaffney123@gmail.com'}, function (err, user){
+//     var newVenue = new Venue({
+//       lookUpId: 16400
+//     });
+
+//     newVenue.save();
+
+//     user.favorites.push({venue: newVenue, rating: 5});
+//     user.save();
+//   });
+
+// };
+
+// addFavorite();
+
+// function addGroupFavorite(){
+//   Group.findOne({title: 'newGroup'}, function (err, group){
+//     var newVenue = new Venue({
+//       lookUpId: 929337
+//     });
+
+//     newVenue.save();
+
+//     group.favorites.push(newVenue);
+//     group.save();
+//   });
+
+// };
+
+//addGroupFavorite();
+
 
 var venues = require("../../../mock-data/venues.json");
 var dests = require("../../../mock-data/destinations.json");
