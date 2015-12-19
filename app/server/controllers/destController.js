@@ -46,6 +46,10 @@ module.exports = {
         console.log(err);
         return res.status(500).send();
       }
+
+      if (!dest){
+        return res.status(400).send();
+      }
       request.get('http://api.tripexpert.com/v1/venues?')
          .query({
           destination_id: dest.destId,
